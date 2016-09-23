@@ -8,7 +8,7 @@
   <style>
     #container .box {
       position: relative;
-      width: 90%;
+      width: 91%;
       margin: 0 auto;
     }
     #container .item {
@@ -30,6 +30,7 @@
     #container .item .title {
         height:25px;
         margin:0 12px;
+        font-size: 12px;
         border-bottom:1px solid #dbdbdb;
     }
     #container .item .para {
@@ -160,9 +161,7 @@
     placeNode:function(ret){
       var self = this;
       var node = this.getNode(ret).appendTo(this.box);
-      // node.find("img").on("load",function(){
         self.waterFlow(node);
-      // })
       this.page += 1;
     },
     getNode:function(ret){
