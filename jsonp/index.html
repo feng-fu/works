@@ -216,8 +216,11 @@
             "left":idx * self.$width,
             "opacity":"1"
           });
+          console.log(self.arr[idx])
           self.arr[idx] += $this.outerHeight(true);
-          self.hide.css("height",self.arr[idx]);
+          if(self.hide.css("height") < self.arr[idx]){
+            self.hide.css("height",self.arr[idx]);
+          }
         })
     }
   }
