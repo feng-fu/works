@@ -1,0 +1,423 @@
+@font-face {
+  font-family: 'iconfont';
+  src: url('//at.alicdn.com/t/font_1474941177_9130502.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/font_1474941177_9130502.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/font_1474941177_9130502.woff') format('woff'), /* chrome、firefox */
+  url('//at.alicdn.com/t/font_1474941177_9130502.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/font_1474941177_9130502.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.iconfont {
+  font-family: "iconfont";
+  font-style: normal;
+  font-size: 20px;
+}
+.iconfont.carico {
+  color: #f46;
+}
+.iconfont.shopico {
+  color: #ef2d25;
+  position: relative;
+  top: 3px;
+}
+.iconfont.down {
+  font-size: 12px;
+  transform: scale(0.6);
+}
+.iconfont.top {
+  font-size: 10px;
+}
+.iconfont.search {
+  color: #fff;
+}
+html,body,div,header,nav,footer,main,img,aside,dl,dd,dt,h1,h2,h3,h4,h5,h6,form,ul,li,dl,dt,dd,ol {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+ul,li {
+  list-style: none;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+html,body {
+  color: #333;
+  width: 100%;
+  height: 100%;
+}
+body {
+  font:12px/1.6 tahoma,arial,sans-serif;
+}
+.layout {
+  width: 1200px;
+  margin: 0 auto;
+}
+/* header navbar */
+header {
+  height: 31px;
+  background-color: #f2f2f2;
+  border-bottom: 1px solid #ddd;
+  padding-right: 70px;
+  z-index: 100;
+}
+header .hover-style {
+  position: relative;
+}
+header .hover {
+  display: none;
+  position: absolute;
+  left: 0;
+}
+header .hover.active {
+  display: block;
+}
+header a{
+  color: #666;
+  line-height: 14px;
+}
+header>nav>ul {
+  float: right;
+}
+header>nav>ul>li {
+  float: left;
+  height: 31px;
+}
+header>nav>ul>li>.hover {
+  background-color: #eee;
+  text-align: center;
+}
+header>nav>ul>li>a {
+  display: inline-block;
+  margin: 8px 0 7px 0;
+  border-left: 1px solid #ddd;
+  padding: 0 15px;
+}
+header>nav>ul>li>.hover.shoplist {
+  width :200px;
+  left: -80px;
+}
+header>nav>ul>li>.shoplist>.nothing {
+  padding: 20px 0;
+  color: #999;
+}
+header>nav>ul>li>.hover.customer {
+  width: 100px;
+}
+header>nav>ul>li>.hover a {
+  display: block;
+  line-height:28px;
+  color: #444;
+}
+header>nav>ul>li>.hover a:hover {
+  background-color: #e4e4e4;
+}
+header>nav>ul>li>.hover.shoproom {
+  width: 90px;
+}
+/* main style */
+/* search box style */
+
+main #search {
+  margin-top: 40px;
+}
+main #search .logo {
+  float: left;
+}
+main #search .logo a {
+  display: block;
+  width: 250px;
+  height: 60px;
+}
+main #search input {
+  outline: 0;
+  border: 0;
+}
+main #search .search {
+  float: left;
+  width: 500px;
+  height: 35px;
+  line-height: 33px;
+  margin-left: 100px;
+  border: 1px solid #3a3a3a;
+}
+main #search .search-box {
+  cursor: pointer;
+  margin: 0 10px;
+  float: left;
+}
+main #search .search-box .hover {
+  display: none;
+}
+main #search .text {
+  display: block;
+  float: left;
+  line-height: 33px;
+  width: 370px;
+}
+main #search .btn {
+  display: block;
+  width: 50px;
+  height: 35px;
+  background-color: #3a3a3a;
+  float: right;
+  cursor: pointer;
+}
+main #search .recommend li{
+  float: left;
+  padding-right: 5px;
+}
+main #search .recommend li a {
+  color: #999;
+}
+/*main nav style*/
+main #screen {
+  margin-top: 20px;
+}
+main #screen nav {
+  width: 223px;
+  float: left;
+  border: 1px solid red;
+  border-top: 0;
+}
+main #screen a:hover {
+  text-decoration: underline;
+}
+main #screen .all>li {
+  float: left;
+}
+main #screen .all>.all-sell {
+  background-color: #f46;
+  width: 225px;
+  height: 36px;
+  line-height: 36px;
+  border-radius: 5px 5px 0 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+  margin-right: 30px;
+}
+main #screen .all>li a {
+  display: block;
+  padding: 2px 15px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 7px;
+}
+main #screen nav .detail {
+  margin: 0 0 0 10px;
+  padding: 9px 0 10px 10px;
+  height: 20px;
+  border-bottom: 1px dotted #ccc;
+  text-align: center;
+}
+main #screen nav .detail.active {
+  border-bottom: 1px solid #ccc;
+}
+main #screen nav .last-detail,main #screen nav .last-detail.active {
+  border-bottom: 0;
+}
+main #screen nav .detail>dt {
+  float: left;
+  font-weight: 700;
+  font-size: 14px;
+  width: 42px;
+  height: 20px;
+  line-height: 20px;
+}
+main #screen nav .detail>dd {
+  float: left;
+  height: 20px;
+  line-height: 20px;
+  padding: 0 6px;
+}
+main #screen nav .detail>dd:nth-child(3) {
+  border-width: 0 1px 0 1px;
+  border-style: solid;
+  border-color: #d8d8d8;
+}
+main #screen .navbar-ct {
+  position: relative;
+}
+main #screen nav .detail .hover {
+  position: absolute;
+  left: 223px;
+  top: -1px;
+  width: 290px;
+  height: 559px;
+  border: 1px solid #ddd;
+  font-size: 12px;
+  text-align: left;
+  overflow: hidden;
+  display: none;
+}
+main #screen nav .detail .hover.active {
+  display: block;
+}
+main #screen nav .detail .ct {
+  position: relative;
+  width: 1px;
+  height: 0;
+}
+main #screen nav .detail .hide {
+  position: absolute;
+  width: 2px;
+  height: 39px;
+  background-color: #fff;
+  top: -9px;
+  left: 202px;
+  display: none;
+}
+main #screen nav .detail .hide.active {
+  display: block;
+  z-index: 1000;
+}
+main #screen nav .detail .hover dl {
+  margin: 14px 20px 20px;
+}
+main #screen nav .detail .hover dt {
+  font-weight: 700;
+}
+main #screen nav .detail .hover dd {
+  margin: 12px 20px 0 0;
+  float: left;
+}
+main #screen nav .detail .hover .banner {
+  text-align: center;
+}
+/*main aside picture*/
+main #screen #aside {
+  float: right;
+  width: 220px;
+  height: 530px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+main #screen #aside li {
+  width: 180px;
+  height: 244px;
+  margin: 20px 19px 0;
+}
+main #screen #aside ul>.first {
+  border-bottom: 1px dashed #ddd;
+}
+/* aside */
+aside {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 30px;
+  height:100%;
+  background-color: #202020;
+  color: #fff;
+  text-align: center;
+}
+aside a {
+  border-bottom: 1px solid rgba(221,221,221,.6);
+  color: #fff;
+  display: inline-block;
+  padding: 10px 0;
+}
+aside>ul>li:hover {
+  background-color: #ef2f23;
+}
+aside ul {
+  margin-top: 60px;
+}
+aside #gotop {
+  position: absolute;
+  bottom: 20px;
+  text-align: center;
+  display: none;
+}
+aside #gotop.active {
+  display: block;
+}
+aside #gotop a {
+  display: block;
+  margin: 0 5px;
+  border-top: 1px solid rgba(221,221,221,.6);
+}
+
+footer {
+  background-color: #fbfbfb;
+  width: 100%;
+  margin-top: 90px;
+  padding-bottom: 20px;
+  border-top: 1px solid #ddd;
+}
+/*url(//www.mogujie.com/img/pay/split.png)*/
+footer .main {
+  padding: 30px 0 6px 0;
+  margin-right: 75px;
+}
+footer .main>.about .container {
+  margin-left: 118px;
+  padding-bttom: 15px;
+  float: left;
+}
+footer .main>.info {
+  width: 246px;
+  float: left;
+  color: #999;
+}
+footer .main>.info a {
+  color: #999;
+}
+footer .main>.about {
+  width: 888px;
+  float: left;
+  margin-left: -30px;
+}
+footer .main>.about a {
+  color: #666;
+}
+footer .main>.about .ensure dd {
+  float: left;
+}
+footer .main>.about .ensure .pinan {
+  display: block;
+  background: url("split.png") no-repeat;
+  background-position: -243px -49px;
+  width: 164px;
+  height: 28px;
+}
+footer .main>.about .ensure .ensureweb {
+  display: block;
+  background: url("split.png") no-repeat;
+  background-position: -396px -49px;
+  width: 84px;
+  height: 28px;
+}
+footer .main>.about a:hover {
+  text-decoration: underline;
+}
+footer dt {
+  font-weight: 700;
+  padding-bottom: 10px;
+}
+footer .friendship {
+  border-top: 1px solid #ddd;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+footer .friendship span {
+  margin: 0 10px 0 0;
+}
+footer .friendship a {
+  margin: 0 13px;
+}
+footer .friendship a:hover {
+  color: #f07;
+  text-decoration: underline;
+}
+
