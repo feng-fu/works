@@ -156,9 +156,25 @@ main #search .search-box {
   cursor: pointer;
   margin: 0 10px;
   float: left;
+  position: relative;
 }
 main #search .search-box .hover {
   display: none;
+  position: absolute;
+  width: 60px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  text-align: center;
+  border-top: none;
+  left: -11px;
+  top: 33px;
+  z-index: 200;
+}
+main #search .search-box .hover.active {
+  display: block;
+}
+main #search .search-box .hover li:hover {
+  background-color: #ddd;
 }
 main #search .text {
   display: block;
@@ -221,9 +237,25 @@ main #search .recommend li a {
   cursor: pointer;
   margin: 0 10px;
   float: left;
+  text-align: center;
+  position: relative;
 }
 #search-stick .search-box .hover {
   display: none;
+  position: absolute;
+  width: 60px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  text-align: center;
+  border-top: none;
+  left: -10px;
+  top: 31px;
+}
+#search-stick .search-box .hover li:hover {
+  background-color: #ddd;
+}
+#search-stick .search-box .hover.active {
+  display: block;
 }
 #search-stick .text {
   display: block;
