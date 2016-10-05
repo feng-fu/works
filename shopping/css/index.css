@@ -140,6 +140,13 @@ main #search .logo a {
   width: 250px;
   height: 60px;
 }
+main #search .logo a img {
+  width: 342px;
+  height: 126px;
+  position: relative;
+  left: -65px;
+  top: -42px;
+}
 main #search input {
   outline: 0;
   border: 0;
@@ -217,7 +224,8 @@ main #search .recommend li a {
   display: block;
   width: 152px;
   height: 38px;
-  background: url(http://s18.mogucdn.com/p1/160411/upload_ifrtkmjqgvrdqyleg4zdambqhayde_152x38.png) no-repeat;
+  background: url(./logo1.png) no-repeat;
+  background-size: 152px 38px;
 }
 #search-stick input {
   outline: 0;

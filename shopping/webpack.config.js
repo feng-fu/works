@@ -3,14 +3,15 @@ var webpack = require('webpack');
 module.exports = {
   entry: './main.js',
   output: {
-    path:'dist',
-    filename: 'bundle.js'
+    path:path.join(__dirname,'dist'),
+    filename: 'bundle.js',
+    publicPath: '/dist/'
   },
   module: {
     loaders:[
       // { test: /\.js?$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015&presets[]=react' },
       { test: /\.css$/, loader: 'style-loader!css-loader' },
-      { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192' },
+      { test: /\.(png|jpg|svg)$/, loader: 'url-loader?limit=8192' },
       {test:/\.json$/,loader:'json'}
     ]
   },

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>组件</title>
+  <link rel="stylesheet" href="css/css.css">
+</head>
+<body>
+<div id="container">
+    <div id="list">
+      <ul class="tab-list clearfix">
+        <li class="active">渐变轮播</li>
+        <li>滑动轮播(new)</li>
+        <li>滑动轮播(jQuery plugin)</li>
+        <li class="last">CSS3轮播</li>
+      </ul>
+    </div>
+    <div id="show">
+      <ul>
+        <li class="active gradient">
+          
+        </li>
+        <li class="slide slide1">
+          <div class="C-ct clearfix">
+            <div class="C-section"><img src="source/3-1.jpg" alt=""></div>
+            <div class="C-section"><img src="source/3-2.jpg" alt=""></div>
+            <div class="C-section"><img src="source/3-3.jpg"  alt=""></div>
+          </div>
+          <div class="turn C-up"></div>
+          <div class="turn C-down"></div>
+          <ul class="clearfix">
+            <li class="C-index active"></li>
+            <li class="C-index"></li>
+            <li class="C-index"></li>
+          </ul>
+        </li>
+        <li class="slide slide2">
+          <div class="C-ct clearfix">
+            <div class="C-section"><img src="source/3-1.jpg" alt=""></div>
+            <div class="C-section"><img src="source/3-2.jpg" alt=""></div>
+            <div class="C-section"><img src="source/3-3.jpg"  alt=""></div>
+          </div>
+          <div class="turn C-up"></div>
+          <div class="turn C-down"></div>
+          <ul class="clearfix">
+            <li class="C-index active"></li>
+            <li class="C-index"></li>
+            <li class="C-index"></li>
+          </ul>
+        </li>
+        <li class="css3"></li>
+      </ul>
+    </div>
+  </div>
+  <script src="http://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/app/tab.js"></script>
+  <script src="js/app/slide.js"></script>
+  <script src="js/app/slide_plugin.js"></script>
+  <script>
+    $("#container").Tab();
+    new Carousel($(".slide1"));
+    $(".slide2").Carousel();
+  </script>
+</body>
+</html>
