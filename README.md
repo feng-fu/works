@@ -1,3 +1,6 @@
+#### You can see the project in githubPage: https://feng-fu.github.io/works/xxx/ instance xxx with a filename that you want to see.
+
+
 # Some Practice demo and project
 
 #### 1. A design website show with requirejs.
