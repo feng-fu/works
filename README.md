@@ -2,7 +2,7 @@
 #### just like https://feng-fu.github.io/works/requirejs-page/.
 
 
-# Some Practice demo and project
+# Some Practices demo and projects.
 
 ### 1. A design website show with requirejs.
 ### 2. A shop Mall Project with webpack.
