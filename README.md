@@ -1,4 +1,4 @@
-#### You can see the project in githubPage: https://feng-fu.github.io/works/xxx/ instance xxx with a filename that you want to see.
+#### You can see the project in githubPage: https://feng-fu.github.io/works/xxx/ instance xxx with a filename that you want to see.just like https://feng-fu.github.io/works/requirejs-page/.
 
 
 # Some Practice demo and project
