@@ -1,5 +1,5 @@
 var webpack = require('webpack');
-  
+var path = require('path');
   module.exports = {
     entry: {
       app: './app', //编译的入口文件
