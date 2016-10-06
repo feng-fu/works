@@ -82,6 +82,7 @@
          $singer.text(author);
          $img.attr("src",bgPic);
          play();
+         console.log($audio.attr("src"))
          // getlyric();//获取歌词,留着数据，稍后做
         }
       })

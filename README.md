@@ -8,5 +8,5 @@
 ### 2. A shop Mall Project with webpack.
 ### 3. Some CSS3 new Special characteristic composition some loading effect.
 ### 4. A Tab plugin with some slide plugin demo.
-### 5. A 3D banner come from Apple.
+### 5. A Simple but useful music web player. 
 
