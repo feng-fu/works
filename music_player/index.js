@@ -82,7 +82,6 @@
          $singer.text(author);
          $img.attr("src",bgPic);
          play();
-         console.log($audio.attr("src"))
          // getlyric();//获取歌词,留着数据，稍后做
         }
       })
@@ -104,9 +103,12 @@
       var allStr = allMin + ":" + allSec;
       var curStr = curMin + ":" + curSec;
       progress.value = audio.currentTime;
+      console.log(progress.max,audio.duration)
       progress.max = audio.duration;
       $current.text(curStr);
-      $total.text(allStr);
+      if($total.text() !== allStr){
+        $total.text(allStr);
+      }
       if(progress.value >= progress.max){
         getMusic();
       }
@@ -122,8 +124,8 @@
     $progress.on("click",function(e){
       var posX = e.clientX;
       var targetLeft = $(this).offset().left;
-      var percentage = (posX - targetLeft)/400*100;
-      audio.currentTime = audio.duration * percentage/100;
+      var percentage = (posX - targetLeft)/260;
+      audio.currentTime = audio.duration * percentage;
     });
   }
 
