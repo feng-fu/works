@@ -103,7 +103,6 @@
       var allStr = allMin + ":" + allSec;
       var curStr = curMin + ":" + curSec;
       progress.value = audio.currentTime;
-      console.log(progress.max,audio.duration)
       progress.max = audio.duration;
       $current.text(curStr);
       if($total.text() !== allStr){
