@@ -224,7 +224,7 @@ main #search .recommend li a {
   display: block;
   width: 152px;
   height: 38px;
-  background: url(./logo1.png) no-repeat;
+  background: url(logo1.png) no-repeat;
   background-size: 152px 38px;
 }
 #search-stick input {
