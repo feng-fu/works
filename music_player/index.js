@@ -51,7 +51,7 @@
     }
     function getChannel(){
       $.ajax({
-        url:'//api.jirengu.com/fm/getChannels.php',
+        url:'http://api.jirengu.com/fm/getChannels.php',
         dataType:'json',
         Method:'get',
         success:function(response){
@@ -66,7 +66,7 @@
     }
     function getSong(){
       $.ajax({
-        url: '//api.jirengu.com/fm/getSong.php',
+        url: 'http://api.jirengu.com/fm/getSong.php',
         dataType: 'json',
         Method: 'get',
         data:{
@@ -94,7 +94,7 @@
       })
     }
     // function getSong(){
-    //   $.get("//api.jirengu.com/fm/getSong.php",{channel:$audio.attr('data-id')}).done(function(ret){
+    //   $.get("http://api.jirengu.com/fm/getSong.php",{channel:$audio.attr('data-id')}).done(function(ret){
     //     var ret = JSON.parse(ret);
     //     var resource = ret.song[0],
     //           url = resource.url,
