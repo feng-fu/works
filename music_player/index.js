@@ -35,7 +35,7 @@
       getChannel();
     });
     $next.on("click",function(){
-      getMusic();
+      getSong();
     });
     function play(){
       audio.play();
@@ -51,7 +51,7 @@
     }
     function getChannel(){
       $.ajax({
-        url:'http://api.jirengu.com/fm/getChannels.php',
+        url:'//api.jirengu.com/fm/getChannels.php',
         dataType:'json',
         Method:'get',
         success:function(response){
@@ -60,13 +60,13 @@
           var num = Math.floor(Math.random()*channels.length);
           var channelId = channels[num].channel_id;
           $audio.attr('data-id',channelId);
-          getMusic();
+          getSong();
         }
       });
     }
-    function getMusic(){
+    function getSong(){
       $.ajax({
-        url: 'http://api.jirengu.com/fm/getSong.php',
+        url: '//api.jirengu.com/fm/getSong.php',
         dataType: 'json',
         Method: 'get',
         data:{
@@ -93,8 +93,8 @@
         }
       })
     }
-    // function getMusic(){
-    //   $.get("http://api.jirengu.com/fm/getSong.php",{channel:$audio.attr('data-id')}).done(function(ret){
+    // function getSong(){
+    //   $.get("//api.jirengu.com/fm/getSong.php",{channel:$audio.attr('data-id')}).done(function(ret){
     //     var ret = JSON.parse(ret);
     //     var resource = ret.song[0],
     //           url = resource.url,
@@ -135,7 +135,7 @@
         $total.text(allStr);
       }
       if(progress.value >= progress.max){
-        getMusic();
+        getSong();
       }
     }
     function playProgress(){
