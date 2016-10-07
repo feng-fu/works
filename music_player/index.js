@@ -50,14 +50,19 @@
       pauseProgress();
     }
     function getChannel(){
-      $.get('http://api.jirengu.com/fm/getChannels.php').done(function(response){
-        var response = JSON.parse(response);
-        var channels = response.channels;
-        var num = Math.floor(Math.random()*channels.length);
-        var channelId = channels[num].channel_id;
-        $audio.attr('data-id',channelId);
-        getMusic();
-      })
+      $.ajax({
+        url:'http://api.jirengu.com/fm/getChannels.php',
+        dataType:'json',
+        Method:'get',
+        success:function(response){
+          // var response = JSON.parse(response);
+          var channels = response.channels;
+          var num = Math.floor(Math.random()*channels.length);
+          var channelId = channels[num].channel_id;
+          $audio.attr('data-id',channelId);
+          getMusic();
+        }
+      });
     }
     function getMusic(){
       $.ajax({
@@ -65,7 +70,9 @@
         dataType: 'json',
         Method: 'get',
         data:{
-          'channel': $audio.attr('data-id')
+          'channel': $audio.attr('data-id'),
+          'version':100,
+          'type':'n'
         },
         success: function (ret){
           var resource = ret.song[0],
@@ -75,7 +82,7 @@
               ssid = resource.ssid, // 歌词数据
               title = resource.title,
               author = resource.artist;
-         $audio.attr('src',url);
+         $audio.attr("src",url);
          $audio.attr('sid',sid);
          $audio.attr('ssid',ssid);
          $title.text(title);
@@ -86,6 +93,25 @@
         }
       })
     }
+    // function getMusic(){
+    //   $.get("http://api.jirengu.com/fm/getSong.php",{channel:$audio.attr('data-id')}).done(function(ret){
+    //     var ret = JSON.parse(ret);
+    //     var resource = ret.song[0],
+    //           url = resource.url,
+    //           bgPic = resource.picture,
+    //           sid = resource.sid,
+    //           ssid = resource.ssid,
+    //           title = resource.title,
+    //           author = resource.artist;
+    //      $audio.attr('src',url);
+    //      $audio.attr('sid',sid);
+    //      $audio.attr('ssid',ssid);
+    //      $title.text(title);
+    //      $singer.text(author);
+    //      $img.attr("src",bgPic);
+    //      play();
+    //   })
+    // }
     var clock;
     function setProgress(){
       var currentTime = audio.currentTime,
