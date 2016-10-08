@@ -64,6 +64,7 @@
           $category.text(channels[num].name);
           $category.attr('data-id',channelId);
           getSong();
+      console.log(audio)
         }
       });
     }
