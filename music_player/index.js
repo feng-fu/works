@@ -15,7 +15,9 @@
         $like = this.find(".like"),
         $img = this.find("main img"),
         $progress = this.find("progress"),
-        progress = $progress.get(0);
+        $category = this.find(".category"),
+        progress = $progress.get(0),
+        clock;
     getChannel();
     $play.on("click",function(){
       play();
@@ -59,32 +61,33 @@
           var channels = response.channels;
           var num = Math.floor(Math.random()*channels.length);
           var channelId = channels[num].channel_id;
-          $audio.attr('data-id',channelId);
+          $category.text(channels[num].name);
+          $category.attr('data-id',channelId);
           getSong();
         }
       });
     }
     function getSong(){
       $.ajax({
-        url: 'http://api.jirengu.com/fm/getSong.php',
+        url: "http://api.jirengu.com/fm/getSong.php",
         dataType: 'json',
         Method: 'get',
         data:{
-          'channel': $audio.attr('data-id'),
-          'version':100,
-          'type':'n'
+          'channel': $category.attr('data-id')
+          // 'version':100,
+          // 'type':'n'
         },
         success: function (ret){
           var resource = ret.song[0],
               url = resource.url,
               bgPic = resource.picture,
-              sid = resource.sid,
-              ssid = resource.ssid, // 歌词数据
+              // sid = resource.sid,
+              // ssid = resource.ssid, // 歌词数据
               title = resource.title,
               author = resource.artist;
          $audio.attr("src",url);
-         $audio.attr('sid',sid);
-         $audio.attr('ssid',ssid);
+         // $audio.attr('sid',sid);
+         // $audio.attr('ssid',ssid);
          $title.text(title);
          $singer.text(author);
          $img.attr("src",bgPic);
@@ -112,7 +115,7 @@
     //      play();
     //   })
     // }
-    var clock;
+    
     function setProgress(){
       var currentTime = audio.currentTime,
           curMin = Math.floor(currentTime/60),
