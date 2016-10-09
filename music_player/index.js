@@ -82,41 +82,26 @@
           var resource = ret.song[0],
               url = resource.url,
               bgPic = resource.picture,
-              // sid = resource.sid,
-              // ssid = resource.ssid, // 歌词数据
+              sid = resource.sid,
+              ssid = resource.ssid, // 歌词数据
               title = resource.title,
               author = resource.artist;
          $audio.attr("src",url);
-         // $audio.attr('sid',sid);
-         // $audio.attr('ssid',ssid);
+         $audio.attr('sid',sid);
+         $audio.attr('ssid',ssid);
          $title.text(title);
          $singer.text(author);
          $img.attr("src",bgPic);
          play();
-         // getlyric();//获取歌词,留着数据，稍后做
+         // getlyric();
         }
       })
     }
-    // function getSong(){
-    //   $.get("http://api.jirengu.com/fm/getSong.php",{channel:$audio.attr('data-id')}).done(function(ret){
-    //     var ret = JSON.parse(ret);
-    //     var resource = ret.song[0],
-    //           url = resource.url,
-    //           bgPic = resource.picture,
-    //           sid = resource.sid,
-    //           ssid = resource.ssid,
-    //           title = resource.title,
-    //           author = resource.artist;
-    //      $audio.attr('src',url);
-    //      $audio.attr('sid',sid);
-    //      $audio.attr('ssid',ssid);
-    //      $title.text(title);
-    //      $singer.text(author);
-    //      $img.attr("src",bgPic);
-    //      play();
+    // function getlyric(){
+    //   $.post('http://api.jirengu.com/fm/getLyric.php', {ssid: $audio.attr("ssid"), sid: $audio.attr("sid")}).done(function(response){
+    //     console.log(response)
     //   })
     // }
-    
     function setProgress(){
       var currentTime = audio.currentTime,
           curMin = Math.floor(currentTime/60),
