@@ -58,6 +58,9 @@
       color: #fff;
       font-weight: 700;
       cursor: pointer;
+      opacity: 0;
+      background-color: rgba(255,255,255,0);
+      filter:alpha(opacity=0);
     }
     #container .pro-ct {
       width: 1140px;
@@ -114,12 +117,21 @@
       this.bind();
       this.setItem();
       this.loadData();
+      if(this.exposure()){
+        this.loadData();
+      }
     },
     bind:function(){
       var self = this,
-          clock;
-      this.btn.on("click",function(){
-        self.loadData();
+          clock,
+          timer;
+      $(document).on("scroll",function(){
+        if(self.exposure()){
+          if(timer) clearTimeout(timer);
+          setTimeout(function(){
+            self.loadData();
+          },100);
+        }
       })
       $(window).on("resize",function(){
         clearTimeout(clock);
@@ -138,6 +150,16 @@
       this.num = Math.floor($allWidth/this.$width);
       for(var i = 0;i < this.num;i++){
         this.arr.push(0);
+      }
+    },
+    exposure:function(){
+      var scrT = $(document).scrollTop();
+      var x = this.btn.offset().top;
+      var hei = $(window).height();
+      if(scrT + hei>= x){
+        return true;
+      }else{
+        return false;
       }
     },
     loadData:function(){
@@ -221,11 +243,8 @@
             "left":idx * self.$width,
             "opacity":"1"
           });
-          console.log(self.arr[idx])
           self.arr[idx] += $this.outerHeight(true);
-          if(self.hide.css("height") < self.arr[idx]){
-            self.hide.css("height",self.arr[idx]);
-          }
+          self.hide.css("height",self.arr[idx]);
         })
     }
   }
