@@ -12,7 +12,7 @@ define(['jquery'],function($){
         "height":40,
         "line-height":"40px",
         "text-align":"center",
-        "background-color":"yellow",
+        "background-color":"#a5cd39",
         "position":"fixed",
         "bottom":30,
         "right":40,
@@ -21,7 +21,8 @@ define(['jquery'],function($){
         "box-shadow":"2px 2px 3px #ccc",
         "cursor":"pointer",
         "transition":"all 1s",
-        "display":"none"
+        "display":"none",
+        "opacity":3,
       }).data("visible",false);
     },
     bind:function(){

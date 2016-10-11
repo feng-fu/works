@@ -43,7 +43,7 @@ html,body {
 	height: 100%;
 }
 body {
-	font: 14px/1.5 "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font: 14px/1.5 "Roboto Slab", "Helvetica Neue", Helvetica, Arial,"微软雅黑", serif;
 }
 .clearfix:after {
 	content: "";
@@ -84,7 +84,7 @@ i:hover {
 	font-style: italic;
 }
 #header .nav-ct h1 a {
-	color: #fed136;
+	color: #a5cd39;
 	line-height: 50px;
 }
 #header .nav-ct .nav {
@@ -102,12 +102,12 @@ i:hover {
 	border-radius: 5px;
 }
 #header .nav-ct li a.active {
-	background-color: #fed136;
+	background-color: #a5cd39;
 	font-weight: 700;
 	/*box-shadow: 2px 2px #000;*/
 }
 #header .nav-ct li a:hover {
-	color: #fed136;
+	color: #a5cd39;
 }
 #header .nav-ct li a.active:hover {
 	color: #fff;
@@ -124,9 +124,11 @@ i:hover {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translateX(-50%) translateY(-50%);
+	/*transform: translateX(-50%) translateY(-50%);*/
 	width: 1140px;
-	margin: 0 auto;
+	height: 490px;
+	margin-left: -570px;
+	margin-top: -245px;
 	text-align: center;
 	color: #efe;
 	font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -134,6 +136,7 @@ i:hover {
 #home-page .home-page-ct h2{
 	font-size: 50px;
 	padding-bottom: 30px;
+	margin-top: 100px;
 	font-style: italic;
 }
 #home-page .home-page-ct h1{
@@ -141,10 +144,11 @@ i:hover {
 }
 #home-page .home-page-ct a {
 	display: inline-block;
-	padding: 20px 40px;
-	margin-top: 50px;
+	padding: 10px 20px;
+	margin-top: 100px;
 	color: #fff;
-	background-color: #fed136;
+	font-size: 30px;
+	background-color: #a5cd39;
 }
 #service {
 	text-align: center;
@@ -168,12 +172,12 @@ i:hover {
 #service .services-box {
 	width: 50px;
 	height: 100px;
-	margin: 0 auto 20px;
+	margin: 30px auto;
 	border:1px solid #fed136;
 }
 #portfolio {
 	width: 100%;
-	background-color: #f7f7f7;
+	background-color: #a5cd39;
 	margin-bottom: 30px;
 }
 #portfolio .pro-ct {
@@ -187,11 +191,12 @@ i:hover {
 }
 #portfolio .img-list img {
 	width: 350px;
+	height: 250px;
 }
 #portfolio .port-hover {
 	width: 350px;
 	height: 253px;
-	background-color: #fed136;
+	background-color: enterprise;
 	position: absolute;
 	top: 0;
 	opacity: 0;
@@ -208,6 +213,7 @@ i:hover {
 	float: left;
 	margin-left: 45px;
 	position: relative;
+	margin-top: 20px;
 }
 #portfolio .img-list li .portfolio_icon {
 	position: absolute;
@@ -256,6 +262,10 @@ i:hover {
 	position: absolute;
 	top: 0;
 	left: 484px;
+	overflow: hidden;
+}
+#about .about-way {
+	margin-top: 20px;
 }
 #about .about-way .about-img {
 	display: block;
@@ -280,15 +290,22 @@ i:hover {
 	float: right;
 	text-align: left;
 }
+#about .about-des-l,#about .about-des-r {
+	background-color: #a5cd39;
+	font-size: 16px;
+	padding: 20px 20px;
+	border-radius: 10px;
+}
 #about .join {
-	background-color: #fed136;
+	background-color: #a5cd39;
 	color: #fff;
 	box-sizing: border-box;
-	padding: 50px 0;
+	padding: 30px 0;
+	font-size: 20px;
 }
 #team {
 	width: 100%;
-	background-color: #fee;
+	background-color: #a5cd39;
 }
 #team .team-ct {
 	width: 1140px;
@@ -299,17 +316,21 @@ i:hover {
 #team .team-guy {
 	margin-left: -120px;
 	margin-bottom: 100px;
+	margin-top: 20px;
 }
 #team .team-guy li {
 	float: left;
 	width: 300px;
 	margin-left: 120px;
+	text-align: center;
 }
 #team .team-guy .b-box {
 	width: 250px;
 	height: 250px;
 	border-radius: 120px;
 	background-color: #ccc;
+	margin-left: 25px;
+	margin-bottom: 20px;
 }
 #team .team-guy .b-box img {
 	width: 236px;
@@ -333,9 +354,13 @@ i:hover {
 	float: left;
 	margin-left: 113px;
 }
+#brand .brand-nav li img {
+	width: 200px;
+	height: 100px;
+}
 #contact {
 	width: 100%;
-	background-color: #000;
+	background-color: #a5cd39;
 }
 #contact .contact-ct {
 	width: 1140px;
@@ -375,9 +400,11 @@ i:hover {
 	color: #fff;
 	border-color: transparent;
 	background-color: #fed136;
+	font-size: 20px;
+	cursor: pointer;
 }
 #contact .sub-btn button:hover {
-	opacity: 0.7;
+	box-shadow: 0 0 10px #fff;
 }
 #footer {
 	width: 100%;
@@ -389,21 +416,25 @@ i:hover {
 	text-align: center;
 }
 #footer .footer-ct p {
+	margin-top: 15px;
 	float: left;
+	color: #a5cd39
 }
 #footer .footer-ct .footer-nav {
+	margin-top: 15px;
 	float: right;
 }
 #footer .footer-ct .footer-nav li {
 	float: left;
+	margin-left: 10px;
 }
 #footer .footer-ct .footer-nav li a {
-	color: #fed136;
+	color: #a5cd39;
 }
 /*Carousel style*/
 #carousel {
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 	position: relative;
 	/*background-color: green;*/
 	overflow: hidden;
@@ -413,7 +444,7 @@ i:hover {
 }
 #carousel img {
 	width: 100vw;
-	height: 100vh;
+	height: 100%;
 }
 #carousel .turn {
 	width: 0;
