@@ -132,13 +132,19 @@
         for(var i = 0;i < $node.length;i++){
           var ctime = audio.currentTime;
           var timeStr = $node.eq(i).attr("data-time");
+          var timeStr2 = $node.eq(i+1).attr("data-time");
           var time = parseInt(timeStr.slice(1,3)) * 60
           + parseInt(timeStr.slice(4,6))
           + parseInt(timeStr.slice(7,9))/60;
-          if(ctime < time){
+          if(!!timeStr2){
+          var time2 = parseInt(timeStr2.slice(1,3)) * 60
+              + parseInt(timeStr2.slice(4,6))
+              + parseInt(timeStr2.slice(7,9))/60;
+          }
+          if(ctime < time && time2 > time){
             if($node.eq(i - 1).hasClass('active')) return;
-            $lyric.css("top",$top - (i - 1) * 10);
             $node.removeClass("active").eq(i - 1).addClass("active");
+            $lyric.css("top",$top - (i - 1) * 16);
             return;
           }
         }
