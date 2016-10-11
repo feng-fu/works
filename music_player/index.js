@@ -14,9 +14,11 @@
         $singer = this.find(".singer"),
         $like = this.find(".like"),
         $img = this.find("main img"),
-        $progress = this.find("progress"),
+        $progress = this.find(".progress"),
+        $render = $progress.find(".render"),
         $category = this.find(".category"),
         progress = $progress.get(0),
+        $lyric = this.find(".lyric"),
         clock;
     getChannel();
     $play.on("click",function(){
@@ -64,7 +66,6 @@
           $category.text(channels[num].name);
           $category.attr('data-id',channelId);
           getSong();
-      console.log(audio)
         }
       });
     }
@@ -93,15 +94,57 @@
          $singer.text(author);
          $img.attr("src",bgPic);
          play();
-         // getlyric();
+         getlyric();
         }
       })
     }
-    // function getlyric(){
-    //   $.post('http://api.jirengu.com/fm/getLyric.php', {ssid: $audio.attr("ssid"), sid: $audio.attr("sid")}).done(function(response){
-    //     console.log(response)
-    //   })
-    // }
+    function getlyric(){
+      $.post('http://api.jirengu.com/fm/getLyric.php', {ssid: $audio.attr("ssid"), sid: $audio.attr("sid")}).done(function(response){
+        var response = JSON.parse(response);
+        if(!!response.lyric){
+          $lyric.empty();
+          var lyricArr = response.lyric.split("\n");
+          var Reg = /\[\d{2}:\d{2}.\d{2}\]/g;
+          var Obj = {};
+          for(i in lyricArr){
+            var time = lyricArr[i].match(Reg);
+            if(!time) continue;
+            var lyric = lyricArr[i].replace(Reg,"");
+            Obj[time] = lyric;
+          }
+          render(Obj);
+        }else{
+          $lyric.empty();
+          $lyric.text("歌词暂未收录...");
+        }
+      })
+    }
+    function render(lyric){
+      var node = "";
+      for(var key in lyric){
+        node += '<li data-time="' + key + '">' + lyric[key] + '</li>';
+      }
+
+      var $node = $(node);
+      var $top = parseInt($lyric.css("top"));
+      $node.appendTo($lyric);
+      setInterval(function(){
+        for(var i = 0;i < $node.length;i++){
+          var ctime = audio.currentTime;
+          var timeStr = $node.eq(i).attr("data-time");
+          var time = parseInt(timeStr.slice(1,3)) * 60
+          + parseInt(timeStr.slice(4,6))
+          + parseInt(timeStr.slice(7,9))/60;
+          if(ctime < time){
+            if($node.eq(i - 1).hasClass('active')) return;
+            $lyric.css("top",$top - (i - 1) * 10);
+            $node.removeClass("active").eq(i - 1).addClass("active");
+            return;
+          }
+        }
+
+      },300);
+    }
     function setProgress(){
       var currentTime = audio.currentTime,
           curMin = Math.floor(currentTime/60),
@@ -117,13 +160,14 @@
       }
       var allStr = allMin + ":" + allSec;
       var curStr = curMin + ":" + curSec;
-      progress.value = audio.currentTime;
-      progress.max = audio.duration;
+      var pwidth = parseInt($progress.css("width"))
+      var $width = currentTime/duration * pwidth;
+      $render.css("width",$width);
       $current.text(curStr);
-      if($total.text() !== allStr){
+      if($total.text() !== allStr && allStr !== "NaN:NaN"){
         $total.text(allStr);
       }
-      if(progress.value >= progress.max){
+      if($width >= pwidth){
         getSong();
       }
     }
@@ -138,9 +182,17 @@
     $progress.on("click",function(e){
       var posX = e.clientX;
       var targetLeft = $(this).offset().left;
-      var percentage = (posX - targetLeft)/260;
+      var percentage = (posX - targetLeft)/parseInt($progress.css("width"));
       audio.currentTime = audio.duration * percentage;
     });
+    $lyric.on("click","li",function(){
+      var timeStr = $(this).attr("data-time");
+      var time = parseInt(timeStr.slice(1,3)) * 60
+          + parseInt(timeStr.slice(4,6))
+          + parseInt(timeStr.slice(7,9))/60;
+      audio.currentTime = time;
+
+    })
   }
 
 // })(jQuery)

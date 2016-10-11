@@ -21,7 +21,7 @@
       min-height: 100%;
     }
     body {
-      background: liner-gradient(to bottom,#f6f7fc 0%,#d5e1e8 40%);
+      background: linear-gradient(to bottom,#f6f7fc 0%,#d5e1e8 40%);
       transform-style: preserve-3d;;
       transform: perspective(800px);
       font-family: "微软雅黑",sans-serif;
@@ -83,18 +83,39 @@
       text-align: center;
       margin-bottom: 30px;
       background: linear-gradient(to bottom, blue, white);
+      position: relative;
     }
     main>img {
       height: 330px;
     }
-    main>.lyric {
-
+    main>.lyric-content {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: rgba(204,204,204,.4);
+      z-index: 100;
+      top: 0;
+      left: 0;
     }
-    main>.lyric>li {
-      
+    main>.lyric-content>.lyric {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: .5s;
     }
-    main>.lyric>.active {
-
+    main .lyric>li {
+      font-size: 12px;
+      font-family: "微软雅黑",serif;
+      color: orange;
+      transition: .5s;
+      cursor: pointer;
+    }
+    main .lyric>.active {
+      color: #fff;
+      font-size: 18px;
+      color: yellow;
     }
     footer {
       margin-top: 10px;
@@ -114,7 +135,7 @@
     footer>.timer>li.current,footer>.timer>li.all {
       font-weight: 700;
     }
-    footer progress {
+    footer .progress {
       height: 10px;
       background-color: #ccc;
       width: 260px;
@@ -123,6 +144,11 @@
       top: 50px;
       transition: all .2s;
       cursor: pointer;
+    }
+    footer .progress>.render {
+      width: 0%;
+      height: 100%;
+      background-color: #86c651;
     }
     footer #player {
       width: 280px;
@@ -202,7 +228,7 @@
     footer {
       height: 25%;
     }
-    footer>progress {
+    footer>.progress {
       position: absolute;
       top: 35%;
       left: 10%;
@@ -223,7 +249,7 @@
     </header>
     <main>
       <img src="" alt="">
-      <ul class="lyric"></ul>
+      <div class="lyric-content"><ul class="lyric"></ul></div>
     </main>
     <footer>
       <div id="player">
@@ -235,7 +261,9 @@
         <span class="iconfont icon-next turn" title="换个风格"></span>
       </div>
       <audio src="">你的浏览器不支持该文件</audio>
-      <progress max="0" value="0"></progress>
+      <div class="progress">
+        <div class="render"></div>
+      </div>
       <ul class="timer clearfix">
         <li class="current"></li>
         <li>/</li>
