@@ -19,6 +19,7 @@
         $category = this.find(".category"),
         progress = $progress.get(0),
         $lyric = this.find(".lyric"),
+        $top = parseInt($lyric.css("top")),
         clock;
     getChannel();
     $play.on("click",function(){
@@ -103,7 +104,8 @@
         var response = JSON.parse(response);
         if(!!response.lyric){
           $lyric.empty();
-          var lyricArr = response.lyric.split("\n");
+          var Instance = response.lyric.replace(", by 饥人谷","");
+          var lyricArr = Instance.split("\n");
           var Reg = /\[\d{2}:\d{2}.\d{2}\]/g;
           var Obj = {};
           for(i in lyricArr){
@@ -126,7 +128,6 @@
       }
 
       var $node = $(node);
-      var $top = parseInt($lyric.css("top"));
       $node.appendTo($lyric);
       setInterval(function(){
         for(var i = 0;i < $node.length;i++){
@@ -140,16 +141,21 @@
           var time2 = parseInt(timeStr2.slice(1,3)) * 60
               + parseInt(timeStr2.slice(4,6))
               + parseInt(timeStr2.slice(7,9))/60;
-          }
-          if(ctime < time && time2 > time){
-            if($node.eq(i - 1).hasClass('active')) return;
-            $node.removeClass("active").eq(i - 1).addClass("active");
-            $lyric.css("top",$top - (i - 1) * 16);
-            return;
+            if(ctime < time && time2 > time){
+              if($node.eq(i - 1).hasClass('active')) return;
+              $node.removeClass("active").eq(i - 1).addClass("active");
+              renderHeight($node.eq(i - 2));
+              return;
+            }
+          }else{
+            if(ctime < time){
+              if($node.eq(i - 1).hasClass('active')) return;
+              $node.removeClass("active").$node.eq($node.length - 1).addClass("active");
+              $lyric.css("top",$top - 16);
+              return;
           }
         }
-
-      },300);
+      }},300);
     }
     function setProgress(){
       var currentTime = audio.currentTime,
@@ -190,16 +196,33 @@
       var targetLeft = $(this).offset().left;
       var percentage = (posX - targetLeft)/parseInt($progress.css("width"));
       audio.currentTime = audio.duration * percentage;
+      for(var i = 0;i < $lyric.find("li").length;i++){
+        if($lyric.find("li").eq(i).hasClass('active')){
+          var self = $lyric.find("li").eq(i);
+          break;
+        }
+      }
+      renderHeight(self);
     });
     $lyric.on("click","li",function(){
-      var timeStr = $(this).attr("data-time");
+      var $this = $(this);
+      var timeStr = $this.attr("data-time");
       var time = parseInt(timeStr.slice(1,3)) * 60
           + parseInt(timeStr.slice(4,6))
           + parseInt(timeStr.slice(7,9))/60;
       audio.currentTime = time;
-
+      renderHeight($this);
     })
+    function renderHeight(self){
+      var $hei = 0;
+      for(var i = 0;i < self.index();i++){
+        $hei += $lyric.find("li").eq(i).outerHeight(true);
+      }
+      var top1 = $top - $hei;
+      $lyric.css("top",top1);
+    }
   }
+
 
 // })(jQuery)
 $(".poster").musicPlayer();
