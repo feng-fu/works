@@ -121,12 +121,19 @@
         }
       })
     }
+    // function sequence(node){
+    //   var $node = $(node);
+    //   for(var i = 0;i < $node.length;i++){
+    //     $node.eq(i).attr("data-time");
+
+    //   }
+    // }
     function render(lyric){
       var node = "";
       for(var key in lyric){
         node += '<li data-time="' + key + '">' + lyric[key] + '</li>';
       }
-
+      // var $node = sequence(node);
       var $node = $(node);
       $node.appendTo($lyric);
       setInterval(function(){
@@ -144,14 +151,15 @@
             if(ctime < time && time2 > time){
               if($node.eq(i - 1).hasClass('active')) return;
               $node.removeClass("active").eq(i - 1).addClass("active");
-              renderHeight($node.eq(i - 2));
+              renderHeight($node.eq(i - 1));
               return;
             }
           }else{
             if(ctime < time){
               if($node.eq(i - 1).hasClass('active')) return;
-              $node.removeClass("active").$node.eq($node.length - 1).addClass("active");
-              $lyric.css("top",$top - 16);
+              $node.removeClass("active").eq($node.length - 1).addClass("active");
+              var topn = parseInt($lyric.height()) - 16;
+              $lyric.css("top",topn);
               return;
           }
         }
