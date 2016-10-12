@@ -151,7 +151,7 @@
             if(ctime < time && time2 > time){
               if($node.eq(i - 1).hasClass('active')) return;
               $node.removeClass("active").eq(i - 1).addClass("active");
-              renderHeight($node.eq(i - 1));
+              renderHeight($node.eq(i));
               return;
             }
           }else{
@@ -226,6 +226,7 @@
       for(var i = 0;i < self.index();i++){
         $hei += $lyric.find("li").eq(i).outerHeight(true);
       }
+      if(self.index() === -1) return;
       var top1 = $top - $hei;
       $lyric.css("top",top1);
     }
