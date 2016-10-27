@@ -113,7 +113,7 @@
     constructor:LoadMore,
     init:function(){
       this.page = 1;
-      this.len = 8;
+      this.len = 16;
       this.bind();
       this.setItem();
       this.loadData();
@@ -130,7 +130,7 @@
           if(timer) clearTimeout(timer);
           setTimeout(function(){
             self.loadData();
-          },100);
+          },10);
         }
       })
       $(window).on("resize",function(){
